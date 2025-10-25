@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 30px auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #2a4d69;
+}
+
+.spiel {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #e9f0f5;
+    border-radius: 8px;
+}
+
+input[type="number"], input[type="text"] {
+    width: 50px;
+    text-align: center;
+}
+
+button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #2a4d69;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #4b86b4;
+    color: white;
+}

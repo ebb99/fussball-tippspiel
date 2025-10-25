@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Fußball Tippspiel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>⚽ Fußball Tippspiel</h1>
+
+    <form action="{{ url_for('tipp') }}" method="post">
+        <label for="name">Dein Name:</label>
+        <input type="text" name="name" required>
+
+        <h2>Spiele</h2>
+        {% for spiel in spiele %}
+            <div class="spiel">
+                <p>{{ spiel.team1 }} vs {{ spiel.team2 }}</p>
+                <input type="hidden" name="spiel_id" value="{{ spiel.id }}">
+                <input type="number" name="team1" min="0" max="10" required> :
+                <input type="number" name="team2" min="0" max="10" required>
+                <button type="submit">Tipp abgeben</button>
+            </div>
+        {% endfor %}
+    </form>
+
+    <a href="{{ url_for('rangliste') }}">➡️ Zur Rangliste</a>
+</body>
+</html>

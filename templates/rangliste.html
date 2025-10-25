@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Rangliste</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>🏆 Rangliste</h1>
+
+    {% if rangliste %}
+        <table>
+            <tr>
+                <th>Platz</th>
+                <th>Name</th>
+                <th>Punkte</th>
+            </tr>
+            {% for name, punkte in rangliste %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ name }}</td>
+                <td>{{ punkte }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Noch keine Tipps abgegeben.</p>
+    {% endif %}
+
+    <a href="{{ url_for('index') }}">⬅️ Zurück zu den Spielen</a>
+</body>
+</html>
