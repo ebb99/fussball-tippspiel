@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <a href="{{ url_for('admin_logout') }}">Logout</a>
+
+    <h2>Bestehende Spiele bearbeiten</h2>
+    {% for spiel in spiele %}
+    <form action="{{ url_for('edit_spiel', spiel_id=spiel.id) }}" method="post">
+        <input type="text" name="team1" value="{{ spiel.team1 }}" required>
+        <input type="text" name="team2" value="{{ spiel.team2 }}" required>
+        <input type="number" name="erg_team1" value="{{ spiel.erg_team1 }}" required>
+        <input type="number" name="erg_team2" value="{{ spiel.erg_team2 }}" required>
+        <button type="submit">Speichern</button>
+    </form>
+    <hr>
+    {% endfor %}
+
+    <h2>Neues Spiel hinzufügen</h2>
+    <form action="{{ url_for('add_spiel') }}" method="post">
+        <input type="text" name="team1" placeholder="Team 1" required>
+        <input type="text" name="team2" placeholder="Team 2" required>
+        <input type="number" name="erg_team1" placeholder="Ergebnis Team 1" required>
+        <input type="number" name="erg_team2" placeholder="Ergebnis Team 2" required>
+        <button type="submit">Hinzufügen</button>
+    </form>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <p style="color:green">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+</body>
+</html>
