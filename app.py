@@ -11,8 +11,7 @@ app.secret_key = 'ein_geheimes_schluesselwort'  # Session für Admin-Login
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
     'DATABASE_URL',
-    'postgresql://fussball_tippspiel_db_user:nzgK6hIMjHMr1A5g5rAes0wo2EKGeaLN@dpg-d3vsltf5r7bs73cg5lp0-a/fussball_tippspiel_db'
-)
+    'postgresql://fussball_tippspiel_db_user:nzgK6hIMjHMr1A5g5rAes0wo2EKGeaLN@dpg-d3vsltf5r7bs73cg5lp0-a/fussball_tippspiel_db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # =======================
